@@ -9,3 +9,7 @@ autopublish
 insecure
 twbs:bootstrap-noglyph
 fortawesome:fontawesome
+iron:router
+accounts-base
+accounts-facebook
+ian:accounts-ui-bootstrap-3
