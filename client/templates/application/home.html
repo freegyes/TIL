@@ -1,3 +1,7 @@
 <template name="home">
-  Hello world
+  {{#if currentUser}}
+    {{> referencesList}}
+  {{else}}
+    Hello world  
+  {{/if}}
 </template>
