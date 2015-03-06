@@ -28,7 +28,7 @@ Template.referencePage.events({
         throwError(error.reason + " (or perhaps the validation failed).", "danger");
       } else {
         Router.go('home');
-        throwError("The reference was succesfully edited.", "success");
+        throwError("Seems more perfect than before.", "success");
       }
     });
   },
@@ -39,7 +39,7 @@ Template.referencePage.events({
       var currentReferenceId = this._id;
       References.remove(currentReferenceId);
       Router.go('home');
-      throwError("The reference was succesfully deleted.", "warning");
+      throwError("This entry has been deprived of its eternal glory.", "warning");
     }
   }
 });

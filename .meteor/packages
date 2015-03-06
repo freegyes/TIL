@@ -11,6 +11,5 @@ iron:router
 accounts-base
 accounts-facebook
 ian:accounts-ui-bootstrap-3
-accounts-password
 sacha:spin
 audit-argument-checks

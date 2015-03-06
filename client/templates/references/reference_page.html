@@ -1,23 +1,23 @@
 <template name="referencePage">
   <form class="well">
     <div class="form-group {{errorClass 'title'}}">
-      <label class="control-label" for="title">Title</label>
-      <input type="text" class="form-control" id="title" placeholder="Name your reference" name="title" value="{{title}}">
+      <label class="control-label" for="title">What was this?</label>
+      <input type="text" class="form-control" id="title" placeholder="Calls for a headline" name="title" value="{{title}}" autofocus>
       <span class="help-block">{{errorMessage 'title'}}</span>
     </div>
     <div class="form-group {{errorClass 'thm'}}">
-      <label class="control-label" for="thm">Today I learned</label>
-      <textarea id="thm" name="thm" class="form-control" rows="3" value="{{thm}}"></textarea>
+      <label class="control-label" for="thm">Today I learned...</label>
+      <textarea id="thm" name="thm" class="form-control" rows="3" value="{{thm}}" placeholder="Be concise. Make Hemingway proud."></textarea>
       <span class="help-block">{{errorMessage 'thm'}}</span>
     </div>
     <div class="form-group">
-      <label class="control-label" for="url">URL</label>
+      <label class="control-label" for="url">Where will I find it again?</label>
       <input type="text" class="form-control" id="url" placeholder="Paste URL (optional)" name="url" value="{{url}}">
     </div>
     <div class="text-center">
-      <a class="btn btn-danger delete" href="#">Delete</a>
+      <a class="btn btn-danger delete" href="#">Trash it</a>
       <span class="or-text">or</span>
-      <input type="submit" value="Submit" class="btn btn-primary"/>
+      <input type="submit" value="Save forever" class="btn btn-primary"/>
     </div>
   </form>
 </template>

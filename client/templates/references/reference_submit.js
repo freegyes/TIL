@@ -28,7 +28,7 @@ Template.referenceSubmit.events({
     Meteor.call('referenceInsert', reference, function(error, result) {
        if (error)
          return throwError(error.reason, "danger");
-       throwError("This new excellent thought was successfully added to your references.", "success");
+       throwError("This new excellent thought was successfully added to your mind-palace.", "success");
        Router.go('home');  
     });
   }
