@@ -28,7 +28,7 @@ Template.referenceSubmit.events({
     Meteor.call('referenceInsert', reference, function(error, result) {
        if (error)
          return throwError(error.reason);
-       Router.go('referencePage', {_id: result._id});  
+       Router.go('home');  
     });
   }
 });

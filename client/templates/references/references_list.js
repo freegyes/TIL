@@ -1,5 +1,5 @@
 Template.referencesList.helpers({
   references: function() {
-    return References.find({});
+    return References.find({}, {sort: {submitted: -1}});
   }
 });
