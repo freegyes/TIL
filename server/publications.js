@@ -1,3 +1,3 @@
 Meteor.publish('references', function() {
-  return References.find({owner: this.userId});
-})
+  return References.find({userId: this.userId});
+});

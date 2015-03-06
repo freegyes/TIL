@@ -1,4 +1,17 @@
 <template name="referenceItem">
-  <h3>{{title}} {{#if url}} <small><a href="{{url}}">{{domain}}</a></small> {{/if}}</h3>
-  <p>{{thm}}</p>
+  <div class="well">
+    <h3>{{title}} 
+      {{#if url}} 
+      <small>
+        <a href="{{url}}">{{domain}}</a>
+      </small> 
+      {{/if}}
+      <small>
+        <a href="{{pathFor 'referencePage'}}" title="edit">
+          <i class="fa fa-pencil"></i>
+        </a>
+      </small>
+    </h3>
+    <p>{{thm}}</p>
+  </div>
 </template>
