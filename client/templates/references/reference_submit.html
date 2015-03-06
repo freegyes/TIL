@@ -1,5 +1,5 @@
 <template name="referenceSubmit">
-  <form>
+  <form class="well">
     <div class="form-group {{errorClass 'title'}}">
       <label class="control-label" for="title">Title</label>
       <input type="text" class="form-control" id="title" placeholder="Name your reference" name="title" value="">
@@ -14,6 +14,8 @@
       <label class="control-label" for="url">URL</label>
       <input type="text" class="form-control" id="url" placeholder="Paste URL (optional)" name="url" value="">
     </div>
-    <input type="submit" value="Submit" class="btn btn-primary"/>
+    <div class="text-center">
+      <input type="submit" value="Submit" class="btn btn-primary"/>
+    </div>
   </form>
 </template>
