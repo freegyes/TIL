@@ -2,6 +2,10 @@ Template.referencePage.created = function() {
   Session.set('referencePageErrors', {});
 }
 
+Template.referencePage.rendered = function() {
+  $('#thm').autosize();
+}
+
 Template.referencePage.helpers({
   errorMessage: function(field) {
     return Session.get('referencePageErrors')[field];

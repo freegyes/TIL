@@ -2,6 +2,10 @@ Template.referenceSubmit.created = function() {
   Session.set('referenceSubmitErrors', {});
 }
 
+Template.referenceSubmit.rendered = function() {
+  $('#thm').autosize();
+}
+
 Template.referenceSubmit.helpers({
   errorMessage: function(field) {
     return Session.get('referenceSubmitErrors')[field];
@@ -31,5 +35,11 @@ Template.referenceSubmit.events({
        throwError("This new excellent thought was successfully added to your mind-palace.", "success");
        Router.go('home');  
     });
+  },
+  'click .cancel': function(e) {
+    e.preventDefault();
+
+    Router.go('home');
+    throwError("Aye, captain, nothing was saved.", "warning");
   }
 });
