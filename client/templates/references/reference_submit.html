@@ -5,15 +5,22 @@
       <input type="text" class="form-control" id="title" placeholder="Calls for a headline" name="title" value="" autofocus>
       <span class="help-block">{{errorMessage 'title'}}</span>
     </div>
-    <div class="form-group {{errorClass 'thm'}}">
-      <label class="control-label" for="thm">Today I learned...</label>
-      <textarea id="thm" name="thm" class="form-control" rows="3" value="" placeholder="Be concise. Make Hemingway proud."></textarea>
-      {{#if errorMessage 'thm'}}
-        <span class="help-block">{{errorMessage 'thm'}}</span>
-      {{else}}
-        <span class="help-block pull-right"><small>Two enter makes a new paragraph, *<i>italic</i>*, **<b>bold</b>**.</small></span>
-      {{/if}}
+    <div class="row">
+      <div class="form-group {{errorClass 'thm'}} col-md-6">
+        <label class="control-label" for="thm">Today I learned...</label>
+        <textarea id="thm" name="thm" class="form-control" rows="5" value="" placeholder="Be concise. Make Hemingway proud."></textarea>
+        {{#if errorMessage 'thm'}}
+          <span class="help-block">{{errorMessage 'thm'}}</span>
+        {{else}}
+          <span class="help-block pull-right"><small>Two enters make a new paragraph, *<i>italic</i>*, **<b>bold</b>**.</small></span>
+        {{/if}}
+      </div>
+      <div class="form-group col-md-6">
+        <label>This is how it will look:</label>
+        {{#markdown}}{{savedContent}}{{/markdown}}
+      </div>
     </div>
+    <hr>
     <div class="form-group">
       <label class="control-label" for="url">Where will I find it again?</label>
       <input type="text" class="form-control" id="url" placeholder="Paste URL (optional)" name="url" value="">

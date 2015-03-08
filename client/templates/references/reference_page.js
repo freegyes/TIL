@@ -4,6 +4,10 @@ Template.referencePage.created = function() {
 
 Template.referencePage.rendered = function() {
   $('#thm').autosize();
+  
+  var thm = $('#thm').val();
+  console.log($('#thm').val());
+  Session.set('content', thm);
 }
 
 Template.referencePage.helpers({
@@ -12,6 +16,9 @@ Template.referencePage.helpers({
   },
   errorClass: function (field) {
     return !!Session.get('referencePageErrors')[field] ? 'has-error' : '';
+  },
+  savedContent: function() {
+    return Session.get('content');
   }
 });
 
@@ -45,5 +52,13 @@ Template.referencePage.events({
       Router.go('home');
       throwError("This entry has been deprived of its eternal glory.", "warning");
     }
-  }
+  },
+  'keyup #thm': function(e) {
+      setTimeout(function(){
+        e.preventDefault();
+        var content = $(e.target).val();
+        Session.set('content', '');
+        Session.set('content', content);
+      },100)
+    }
 });

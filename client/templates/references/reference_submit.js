@@ -1,5 +1,6 @@
 Template.referenceSubmit.created = function() {
   Session.set('referenceSubmitErrors', {});
+  Session.set('content', '');
 }
 
 Template.referenceSubmit.rendered = function() {
@@ -12,8 +13,12 @@ Template.referenceSubmit.helpers({
   },
   errorClass: function (field) {
     return !!Session.get('referenceSubmitErrors')[field] ? 'has-error' : '';
+  },
+  savedContent: function() {
+    return Session.get('content');
   }
 });
+
 
 Template.referenceSubmit.events({
   'submit form': function(e) {
@@ -41,5 +46,13 @@ Template.referenceSubmit.events({
 
     Router.go('home');
     throwError("Aye, captain, nothing was saved.", "warning");
+  },
+  'keyup #thm': function(e) {
+    setTimeout(function(){
+      e.preventDefault();
+      var content = $(e.target).val();
+      Session.set('content', '');
+      Session.set('content', content);
+    },100)
   }
 });
