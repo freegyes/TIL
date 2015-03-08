@@ -1,6 +1,7 @@
 Template.referenceSubmit.created = function() {
   Session.set('referenceSubmitErrors', {});
   Session.set('content', '');
+  Session.set('title', '')
 }
 
 Template.referenceSubmit.rendered = function() {
@@ -16,6 +17,9 @@ Template.referenceSubmit.helpers({
   },
   savedContent: function() {
     return Session.get('content');
+  },
+  titleOfPage: function() {
+    return Session.get('title');
   }
 });
 
@@ -54,5 +58,26 @@ Template.referenceSubmit.events({
       Session.set('content', '');
       Session.set('content', content);
     },100)
+  },
+  'keyup #title': function() {
+    var title = $('#title').val();
+    Session.set('title', title);
+  },
+  'click .callServer': function() {
+    
+    function addHttp(url) {
+       if (!/^(f|ht)tps?:\/\//i.test(url)) {
+          url = "http://" + url;
+       }
+       return url;
+    }
+
+    var url = addHttp($('#url').val());
+
+    Meteor.call('scrapeTitle', url, function(error, result) {
+      if (error) return throwError ("Are you sure this is a valid URL?", "warning");
+      $('#title').val(result);
+      Session.set('title', result);
+    });
   }
 });
