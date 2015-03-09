@@ -2,18 +2,18 @@ Template.referencesList.helpers({
   references: function() { 
     if (References.find().count() === 0) {
       
-      var reference = {
-      title: "This place just got better with you",
-      thm: "This is a sample reference and will always show up if this list would be empty. Modify it to your liking or trash it after you started to log that you have learnt today. If you feel like contributing don't hesitate.",
-      url: "https://github.com/freegyes/TIL"
-      };
+      var reference = [{
+            title: "This place just got better with you!",
+            thm: "This is a *ghost reference* and **will automatically disappear** when you [start adding that you have learnt today](/submit). \n\n If you feel like contributing don't hesitate and [contact me](https://github.com/freegyes/TIL).",
+            url: "https://github.com/freegyes/TIL"
+            }];
+
+      return reference;
       
-      Meteor.call('referenceInsert', reference, function(error, result) {
-        if (error)
-          return throwError(error.reason, "danger");
-        throwError("Empty lists are boring, dummy reference added FTW.", "success");
-      });
-    };     
-    return References.find({}, {sort: {submitted: -1}});
+    } else {    
+      
+      return References.find({}, {sort: {submitted: -1}});
+    
+    }
   }
 });
